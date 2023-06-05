@@ -1,0 +1,28 @@
+
+<div class="navbar">
+  <button class="logout-button" (click)="logout()">Logout</button>
+</div>
+<div class="container">
+  <div class="file-upload-container">
+    <label class="file-upload-label" for="fileUpload">Choose CSV File</label>
+    <input id="fileUpload" class="file-upload-input" type="file" (change)="onFileSelected($event)">
+  </div>
+
+  <div *ngIf="!selectedFile">
+    <p>No file chosen</p>
+  </div>
+
+ <div class="upload-status">
+    <h4>{{ uploadStatus }}</h4>
+
+  </div> 
+
+   <div *ngIf="selectedFile" class="uploaded-file">
+   <p>Uploaded File: {{ selectedFile.name }}</p>
+    <button class="view-file-button" (click)="viewUploadedFile()">View File</button>
+  </div>
+
+ 
+
+  <button class="submit-button" (click)="submitForm()">Submit</button>
+</div>

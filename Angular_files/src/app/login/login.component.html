@@ -1,0 +1,25 @@
+
+<div class="container" [style.height]="containerHeight">
+  <div class="wave-container"></div>
+
+  <div class="login-form">
+    <h2>Login</h2>
+    <form (ngSubmit)="login()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" [(ngModel)]="email" (input)="validateEmail()" required>
+        <div class="error-message" *ngIf="emailInvalid && email !== ''">Enter correct email format</div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" [(ngModel)]="password" required>
+      </div>
+      <br>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!isLoginDisabled">Log In</button>
+    </form>
+    <div class="signup-link">
+      <p>Don't have an account? <a [routerLink]="['/signup']">Sign up now!</a></p>
+    </div>
+  </div>
+</div>
